@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSong's Post</title>
+    <style>
+        * {
+            font-family : '함초롬돋움'
+        }
+    </style>
+</head>
+
+<body style="text-align : center">
+<div>
+    <h1>Post</h1>
+</div>
+
+<div>
+    {% for post in posts %}
+    <div class>
+        <h2><b>&lt;{{ post.title }}&gt;</b></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{%if posts.has_previous%}
+<a href="?page=1">첫 페이지</a>
+<a href="?page={{posts.previous_page_number}}">이전</a>
+{%endif%}
+
+<span>{{posts.number}}</span>
+<span>/</span>
+<span>{{posts.paginator.num_pages}}</span>
+
+{%if posts.has_next%}
+<a href="?page={{posts.next_page_number}}">다음</a>
+<a href="?page={{posts.paginator.num_pages}}">마지막 페이지</a>
+{%endif%}
+
+</body>
+</html>

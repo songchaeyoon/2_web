@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Todo List</title>
+    <style>
+       ul li{ float : left; margin-left : 30px;}
+        * {
+            font-family : '함초롬돋움'
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="content">
+
+    <h1>Todo List</h1>
+
+    <ul>
+        {% for todolist in object_list %}
+        <li>{{ todolist.content }}</li>
+        <li>{{ todolist.created_date }}</li>
+        <li>{{ todolist.deadline_date }}</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+</body>
+</html>
